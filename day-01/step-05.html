@@ -1,0 +1,80 @@
+<html>
+    <body>
+        <div id="app"></div>
+        
+        <!-- Ajout des librairies react -->
+        <!-- La libraire react core -->
+        <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+        <!-- La librairie react pour manipuler le DOM -->
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+        
+        <!-- Ajout de Babel pour interpréter le JSX -->
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <script type="text/jsx">
+          const app = document.getElementById('app');
+
+          // Création d'un composant React simple
+          // Passage de propriété par objet
+          function Header( props ) {
+            return <h1>{props.title}</h1>;
+          }
+
+          // Création d'un composant React simple
+          // Passage de proprité par litéral
+          function Header1( {title} ) {
+            return <h1>{title}</h1>;
+          }
+
+          // Création d'un composant React simple
+          // Passage de proprité par litéral, transformé par une fonction
+          function Header2( {title} ) {
+            return <h1>{createTitle(title)}</h1>;
+          }
+          function createTitle(title){
+            if (title) {
+              return title;
+            } else {
+              return 'Default Title';
+            }
+          }
+
+          // Création d'un composant React simple
+          // Passage de proprité par litéral avec un opérateur ternaire
+          function Header3( {title} ) {
+            return <h1>{title ? title: 'Another Default title'}</h1>;
+          }
+
+          // Creation d'un composant qui appelle un autre composant (Nested Component)
+          // Ajout de propriété "title" au composant Header 
+          function HomePage() {
+            const names = ['John', 'Marc', 'Jim'];
+
+            const [likes, setLikes] = React.useState(0);
+
+            // Fonction pour réagir au click sur le button
+            function handleClick() {
+              setLikes(likes+1);
+              console.log("increment like count");
+            }
+
+            return ( 
+              <div>
+                <Header title="Hello World!" />
+                <Header1 title="Hello World!" />
+                <Header2 title="" />
+                <Header3 title="" />
+                <ul>
+                  {names.map((name) => (
+                    <li key={name}>{name}</li>
+                  ))}
+                </ul>
+                <button onClick={handleClick}>Like ({likes})</button>
+              </div>
+            );
+          }
+
+          // Appel du composant 
+          ReactDOM.render(<HomePage />, app);
+        </script>
+    </body>
+</html>

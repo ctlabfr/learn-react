@@ -1,0 +1,34 @@
+<html>
+    <body>
+        <div id="app"></div>
+        
+        <!-- Ajout des librairies react -->
+        <!-- La libraire react core -->
+        <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+        <!-- La librairie react pour manipuler le DOM -->
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+        
+        <!-- Ajout de Babel pour interpréter le JSX -->
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <script type="text/jsx">
+          const app = document.getElementById('app');
+
+          // Création d'un composant React simple
+          function Header() {
+            return (<h1>Hello World !</h1>);
+          }
+          
+          // Creation d'un composant qui appelle un autre composant (Nested Component)
+          function HomePage() {
+            return { 
+              <div>
+                <Header />
+              </div>
+            };
+          }
+
+          // Appel du composant 
+          ReactDOM.render(<HomePage />, app);
+        </script>
+    </body>
+</html>

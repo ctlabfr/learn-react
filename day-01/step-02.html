@@ -1,0 +1,18 @@
+<html>
+    <body>
+        <div id="app"></div>
+        
+        <!-- Ajout des librairies react -->
+        <!-- La libraire react core -->
+        <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+        <!-- La librairie react pour manipuler le DOM -->
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+        
+        <!-- Ajout de Babel pour interpréter le JSX -->
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <script type="text/jsx">
+          const app = document.getElementById('app');
+          ReactDOM.render(<h1>Hello World!</h1>, app);
+        </script>
+    </body>
+</html>
