@@ -41,18 +41,25 @@
           // Création d'un composant React simple
           // Passage de proprité par litéral avec un opérateur ternaire
           function Header3( {title} ) {
-            return <h1>{title ? title: 'Another Default title'}</h1>;
+            return <h1>{title ? title: 'Anotmher Default title'}</h1>;
           }
 
           // Creation d'un composant qui appelle un autre composant (Nested Component)
           // Ajout de propriété "title" au composant Header 
           function HomePage() {
+            const names = ['John', 'Marc', 'Jim'];
+
             return ( 
               <div>
                 <Header title="Hello World!" />
                 <Header1 title="Hello World!" />
                 <Header2 title="" />
                 <Header3 title="" />
+                <ul>
+                  {names.map((name) => (
+                    <li key={name}>{name}</li>
+                  ))}
+                </ul>
               </div>
             );
           }
